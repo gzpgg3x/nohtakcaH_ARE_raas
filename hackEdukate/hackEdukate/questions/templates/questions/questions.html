@@ -24,7 +24,7 @@
     {% for question in questions %}
       {% include 'questions/partial_question.html' with question=question %}
     {% empty %}
-      <h4 class="no-data">{% trans "No question to display" %}</h4>
+      <h4 class="no-data">{% trans "No review to display" %}</h4>
     {% endfor %}
     {% include 'paginator.html' with paginator=questions %}
   </div>
