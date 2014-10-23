@@ -62,14 +62,23 @@ class Question(models.Model):
             favoriters.append(favorite.user)
         return favoriters
 
-    def create_tags(self, tags):
-        tags = tags.strip()
-        tag_list = tags.split(' ')
-        for tag in tag_list:
-            t, created = Tag.objects.get_or_create(tag=tag.lower(), question=self)
+    def create_urls(self, urls):
+        urls = urls.strip()
+        url_list = urls.split(' ')
+        for url in url_list:
+            t, created = Url.objects.get_or_create(url=url.lower(), question=self)
 
-    def get_tags(self):
-        return Tag.objects.filter(question=self)
+    def get_urls(self):
+        return Url.objects.filter(question=self)
+
+    # def create_tags(self, tags):
+    #     tags = tags.strip()
+    #     tag_list = tags.split(' ')
+    #     for tag in tag_list:
+    #         t, created = Tag.objects.get_or_create(tag=tag.lower(), question=self)
+
+    # def get_tags(self):
+    #     return Tag.objects.filter(question=self)        
 
 
 class Answer(models.Model):
@@ -124,18 +133,34 @@ class Answer(models.Model):
         return markdown.markdown(self.description, safe_mode='escape')
 
 
-class Tag(models.Model):
+class Url(models.Model):
 # class Hackathon(models.Model):    
-    tag = models.CharField(max_length=50)
+    url = models.CharField(max_length=50)
     question = models.ForeignKey(Question)
 
     class Meta:
-        verbose_name = ('Tag')
-        verbose_name_plural = ('Tags')
+        verbose_name = ('Url')
+        verbose_name_plural = ('Urls')
         # verbose_name = ('Hackathon')
         # verbose_name_plural = _('Hackathons') 
-        unique_together = (('tag', 'question'),)
-        index_together = [['tag', 'question'],]
+        unique_together = (('url', 'question'),)
+        index_together = [['url', 'question'],]
     
     def __unicode__(self):
-        return self.tag
+        return self.url
+
+# class Tag(models.Model):
+# # class Hackathon(models.Model):    
+#     tag = models.CharField(max_length=50)
+#     question = models.ForeignKey(Question)
+
+#     class Meta:
+#         verbose_name = ('Tag')
+#         verbose_name_plural = ('Tags')
+#         # verbose_name = ('Hackathon')
+#         # verbose_name_plural = _('Hackathons') 
+#         unique_together = (('tag', 'question'),)
+#         index_together = [['tag', 'question'],]
+    
+#     def __unicode__(self):
+#         return self.tag        

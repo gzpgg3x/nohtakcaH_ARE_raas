@@ -28,10 +28,10 @@
     <div class="question-description">
       {{ question.get_description_preview_as_markdown|safe }}
     </div>
-    {% if question.get_tags %}
+    {% if question.get_urls %}
       <p>
-        {% for tag in question.get_tags %}
-          <span class="label label-primary">{{ tag }}</span>
+        {% for url in question.get_urls %}
+          <span class="label label-primary">{{ url }}</span>
         {% endfor %}
       </p>
     {% endif %}

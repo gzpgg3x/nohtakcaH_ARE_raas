@@ -25,10 +25,10 @@
         {% endfor %}
       </section>
     </div>
-    <div class="col-md-2 popular-tags">
-      <h4>{% trans 'Popular Tags' %}</h4>
-      {% for tag, count in popular_tags %}
-        <a href="{% url 'tag' tag %}"><span class="label label-default">{{ count }} {{ tag }}</span></a>
+    <div class="col-md-2 popular-urls">
+      <h4>{% trans 'Popular urls' %}</h4>
+      {% for url, count in popular_urls %}
+        <a href="{% url 'url' url %}"><span class="label label-default">{{ count }} {{ url }}</span></a>
       {% endfor %}
     </div>
   </div>

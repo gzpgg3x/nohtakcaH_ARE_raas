@@ -15,7 +15,7 @@
       <tr>
         <th>{% trans 'Title' %}</th>
         <th>{% trans 'Content' %}</th>
-        <th>{% trans 'Tags' %}</th>
+        <th>{% trans 'Urls' %}</th>
       </tr>
     </thead>
     <tbody>
@@ -24,8 +24,8 @@
           <td><a href="{% url 'edit_article' article.pk %}">{{ article.title }}</a></td>
           <td>{{ article.get_summary_as_markdown|safe }}</td>
           <td>
-            {% for tag in article.get_tags %}
-              <span class="label label-default">{{ tag }}</span>
+            {% for url in article.get_urls %}
+              <span class="label label-default">{{ url }}</span>
             {% endfor %}
           </td>
         </tr>

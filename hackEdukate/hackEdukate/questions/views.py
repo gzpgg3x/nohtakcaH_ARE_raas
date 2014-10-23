@@ -49,8 +49,8 @@ def ask(request):
            question.title = form.cleaned_data.get('title')
            question.description = form.cleaned_data.get('description')
            question.save()
-           tags = form.cleaned_data.get('tags')
-           question.create_tags(tags)
+           urls = form.cleaned_data.get('urls')
+           question.create_urls(urls)
            return redirect('/questions/')
         else:
             return render(request, 'questions/ask.html', {'form': form})        

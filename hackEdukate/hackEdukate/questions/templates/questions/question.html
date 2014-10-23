@@ -33,10 +33,10 @@
       <div class="question-description">
         {{ question.get_description_as_markdown|safe }}
       </div>
-      {% if question.get_tag_list %}
+      {% if question.get_url_list %}
         <p>
-          {% for tag in question.get_tag_list %}
-            <span class="label label-primary">{{ tag }}</span>
+          {% for url in question.get_url_list %}
+            <span class="label label-primary">{{ url }}</span>
           {% endfor %}
         </p>
       {% endif %}
