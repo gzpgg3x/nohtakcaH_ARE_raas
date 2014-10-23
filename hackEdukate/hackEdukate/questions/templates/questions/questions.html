@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}Questions{% endblock %}
+{% block title %}Reviews{% endblock %}
 
 {% block head %}
   <link href="{{ STATIC_URL }}css/questions.css" rel="stylesheet">
@@ -11,15 +11,15 @@
 {% block main %}
   <div class="page-header">
     <a href="{% url 'ask' %}" class="btn btn-primary pull-right">
-      <span class="glyphicon glyphicon-bullhorn"></span> {% trans "Ask Question" %}
+      <span class="glyphicon glyphicon-bullhorn"></span> {% trans "Start Review" %}
     </a>
-    <h1>{% trans "hackAsk" %}</h1>
+    <h1>{% trans "Reviews" %}</h1>
   </div>
   <div class="questions">
     <ul class="nav nav-tabs" style="margin-bottom: 1.4em">
-      <li{% if active == 'unanswered' %} class="active"{% endif %}><a href="{% url 'unanswered' %}">{% trans "Unanswered" %}</a></li>
-      <li{% if active == 'answered' %} class="active"{% endif %}><a href="{% url 'answered' %}">{% trans "Answered" %}</a></li>
-      <li{% if active == 'all' %} class="active"{% endif %}><a href="{% url 'all' %}">{% trans "All Questions" %}</a></li>
+      <li{% if active == 'unanswered' %} class="active"{% endif %}><a href="{% url 'unanswered' %}">{% trans "Unreviewed" %}</a></li>
+      <li{% if active == 'answered' %} class="active"{% endif %}><a href="{% url 'answered' %}">{% trans "Reviewed" %}</a></li>
+      <li{% if active == 'all' %} class="active"{% endif %}><a href="{% url 'all' %}">{% trans "All Reviews" %}</a></li>
     </ul>
     {% for question in questions %}
       {% include 'questions/partial_question.html' with question=question %}

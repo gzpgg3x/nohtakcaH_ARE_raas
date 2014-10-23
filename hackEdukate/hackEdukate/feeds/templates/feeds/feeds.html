@@ -10,12 +10,12 @@
 {% block main %}
   <div class="page-header">
     <button type="button" class="btn btn-primary pull-right btn-compose" title="{% trans 'Press Ctrl + P to compose' %}">
-      <span class="glyphicon glyphicon-share-alt"></span> {% trans 'Add hackActivity' %}
+      <span class="glyphicon glyphicon-share-alt"></span> {% trans 'Add to TIMELINE' %}
     </button>
-    <h1>{% trans 'hackActivity' %}</h1>
+    <h1>{% trans 'TIMELINE' %}</h1>
   </div>
   <div class="compose">
-    <h2>{% trans "Compose a new hackActivity" %}</h2>
+    <h2>{% trans "Add to TIMELINE" %}</h2>
     <form role="form" id="compose-form">
       {% csrf_token %}
       <input type="hidden" name="last_feed">
