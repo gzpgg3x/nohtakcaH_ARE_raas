@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('hackEdukate.questions.views',
     url(r'^$', 'questions', name='questions'),
+    url(r'^isearch/$', 'isearch', name='isearch'),
+    # url(r'^search/$', views.isearch, name='search'),    
     url(r'^answered/$', 'answered', name='answered'),
     url(r'^unanswered/$', 'unanswered', name='unanswered'),
     url(r'^all/$', 'all', name='all'),

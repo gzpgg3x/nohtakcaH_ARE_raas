@@ -3,8 +3,10 @@
 
 {% block main %}
   <ol class="breadcrumb">
-    <li><a href="{% url 'questions' %}">{% trans 'REVIEWS' %}</a></li>
+    <li><a href="{% url 'questions' %}">{% trans 'Reviews' %}</a></li>
     <li class="active">{% trans 'Review'  %}</li>
+    <li><a href="{% url 'isearch' %}">{% trans 'Internet Search' %}</a></li>
+<!--     <li><A href="isearch">Internet Search</A></li>   -->       
   </ol>
   <form action="{% url 'ask' %}" method="post" class="form-horizontal" role="form">
     {% csrf_token %}

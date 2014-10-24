@@ -8,6 +8,10 @@ from django.contrib.auth.decorators import login_required
 from hackEdukate.decorators import ajax_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from hackEdukate.questions.bing_search import run_query
+from django.template import RequestContext
+from django.shortcuts import render_to_response
+
 @login_required
 def _questions(request, questions, active):
     paginator = Paginator(questions, 10)
@@ -130,3 +134,18 @@ def favorite(request):
         activity.save()
         user.profile.notify_favorited(question)
     return HttpResponse(question.calculate_favorites())
+
+# @login_required
+# @ajax_required
+def isearch(request):
+    context = RequestContext(request)
+    result_list = []
+
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+
+        if query:
+            # Run our Bing function to get the results list!
+            result_list = run_query(query)
+
+    return render_to_response('questions/isearch.html', {'result_list': result_list}, context)    

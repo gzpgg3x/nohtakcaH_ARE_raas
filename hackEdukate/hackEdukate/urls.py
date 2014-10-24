@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^notifications/last/$', 'hackEdukate.activities.views.last_notifications', name='last_notifications'),
     url(r'^notifications/check/$', 'hackEdukate.activities.views.check_notifications', name='check_notifications'),
     url(r'^search/$', 'hackEdukate.search.views.search', name='search'),
+    url(r'^questions/isearch/$', 'hackEdukate.questions.views.isearch', name='isearch'),    
     url(r'^(?P<username>[^/]+)/$', 'hackEdukate.core.views.profile', name='profile'),
     url(r'^i18n/', include('django.conf.urls.i18n', namespace='i18n')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
