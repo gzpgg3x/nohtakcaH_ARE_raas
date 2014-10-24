@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% load i18n %}
+{% load humanize %}
 
 {% block title %}Interenet Search{% endblock %}
 
-{% block body_block %}
-<div class="hero-unit">
-    <h1>Search with RAAS</h1>
+{% block head %}
+  <link href="{{ STATIC_URL }}css/search.css" rel="stylesheet">
+{% endblock head %}
+
+<!-- {% block body_block %} -->
+{% block main %}
+<div class="page-header">
+    <h1>Internet Search using RAAS</h1>
     <br/>
 
     <div class="container-fluid">
@@ -33,4 +39,5 @@
         {% endif %}
     </div>
 </div>
-{% endblock %}
+{% endblock main %}
+<!-- {% endblock %} -->
