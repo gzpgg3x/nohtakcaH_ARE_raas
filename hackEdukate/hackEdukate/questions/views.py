@@ -16,13 +16,24 @@ from django.shortcuts import render_to_response
 def _questions(request, questions, active):
     paginator = Paginator(questions, 10)
     page = request.GET.get('page')
+
+    context_dict = {'questions': questions, 'active': active}
+    
     try:
         questions = paginator.page(page)
     except PageNotAnInteger:
         questions = paginator.page(1)
     except EmptyPage:
         questions = paginator.page(paginator.num_pages)
-    return render(request, 'questions/questions.html', {'questions': questions, 'active': active})
+
+    if request.method == 'POST':
+        #query = request.POST['query'].strip()
+        query = request.POST.get('query')
+        if query:
+            result_list = run_query(query)
+            context_dict['result_list'] = result_list
+
+    return render(request, 'questions/questions.html', context_dict)
 
 @login_required
 def questions(request):
@@ -148,4 +159,5 @@ def isearch(request):
             # Run our Bing function to get the results list!
             result_list = run_query(query)
 
-    return render_to_response('questions/isearch.html', {'result_list': result_list}, context)    
+    return render_to_response('questions/isearch.html', {'result_list': result_list}, context)  
+    # return render_to_response('questions/questions.html', {'result_list': result_list}, context)       
