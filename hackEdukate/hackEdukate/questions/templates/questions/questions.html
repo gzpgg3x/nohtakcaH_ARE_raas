@@ -9,7 +9,13 @@
 {% endblock head %}
 
 {% block main %}
+
+
+
   <div class="page-header">
+
+
+    
     <a href="{% url 'ask' %}" class="btn btn-primary pull-right">
       <span class="glyphicon glyphicon-bullhorn"></span> {% trans "Start Review" %}
     </a>
@@ -17,7 +23,7 @@
   </div>
   <div class="questions">
     <ul class="nav nav-tabs" style="margin-bottom: 1.4em">
-      <li{% if active == 'unanswered' %} class="active"{% endif %}><a href="{% url 'unanswered' %}">{% trans "Unreviewed" %}</a></li>
+      <li{% if active == 'unanswered' %} class="active"{% endif %}><a href="{% url 'unanswered' %}">{% trans "Under Review" %}</a></li>
       <li{% if active == 'answered' %} class="active"{% endif %}><a href="{% url 'answered' %}">{% trans "Reviewed" %}</a></li>
       <li{% if active == 'all' %} class="active"{% endif %}><a href="{% url 'all' %}">{% trans "All Reviews" %}</a></li>
     </ul>
