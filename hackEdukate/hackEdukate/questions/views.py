@@ -18,7 +18,7 @@ def _questions(request, questions, active):
     page = request.GET.get('page')
 
     context_dict = {'questions': questions, 'active': active}
-    
+
     try:
         questions = paginator.page(page)
     except PageNotAnInteger:
@@ -160,4 +160,30 @@ def isearch(request):
             result_list = run_query(query)
 
     return render_to_response('questions/isearch.html', {'result_list': result_list}, context)  
-    # return render_to_response('questions/questions.html', {'result_list': result_list}, context)       
+    # return render_to_response('questions/questions.html', {'result_list': result_list}, context)
+
+def auto_add_page(request):
+    context = RequestContext(request)
+    cat_id = None
+    url = None
+    title = None
+    context_dict = {}
+    if request.method == 'GET':
+        cat_id = request.GET['description']
+        url = request.GET['url']
+        title = request.GET['title']
+        print cat_id
+        print url
+        print title
+        print 909       
+        # if cat_id:
+            # category = Category.objects.get(id=int(cat_id))
+        # p = Page.objects.get_or_create(category=category, title=title, url=url)
+        p = Question.objects.get_or_create(description=cat_id, title=title, user_id=1)
+            # pages = Page.objects.filter(category=category).order_by('-views')
+
+            # Adds our results list to the template context under name pages.
+        context_dict['questions'] = questions
+
+    return render_to_response('questions/questions.html', context_dict, context)  
+

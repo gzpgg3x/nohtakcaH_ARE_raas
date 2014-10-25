@@ -13,9 +13,10 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="{{ STATIC_URL }}js/jquery-2.1.1.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-2.0.3.min.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
     <script src="{{ STATIC_URL }}js/hackEdukate.js"></script>
+    <script src="{{ STATIC_URL }}js/rango-ajax.js"></script>      
 
     {% block head %}
     {% endblock head %}
@@ -83,7 +84,9 @@
       </main>
       <script src="{{ STATIC_URL }}js/notifications.js"></script>
       <script src="{{ STATIC_URL }}js/check_messages.js"></script>
+      <script src="{{ STATIC_URL }}js/rango-ajax.js"></script>      
     {% endblock body %}
     <script src="{{ STATIC_URL }}js/ga.js"></script>
+    <script src="{{ STATIC_URL }}js/rango-ajax.js"></script>      
   </body>
 </html>

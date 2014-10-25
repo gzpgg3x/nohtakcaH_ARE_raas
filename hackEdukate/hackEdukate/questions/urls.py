@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('hackEdukate.questions.views',
     url(r'^$', 'questions', name='questions'),
     url(r'^isearch/$', 'isearch', name='isearch'),
+    url(r'^auto_add_page/$', 'auto_add_page', name='auto_add_page'),    
     # url(r'^search/$', views.isearch, name='search'),    
     url(r'^answered/$', 'answered', name='answered'),
     url(r'^unanswered/$', 'unanswered', name='unanswered'),
